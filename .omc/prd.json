@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "title": "Tistory 스킨 UI 개선 4종",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "게시글 카드에 좋아요 수 추가",
+      "description": "게시글 목록의 footer에 댓글 수와 함께 좋아요 수도 표시된다.",
+      "passes": true,
+      "acceptanceCriteria": [
+        "skin.html의 post-card-footer 내에 하트 아이콘과 [##_article_rep_like_cnt_##] 치환자가 추가된다 ✅ (line 132-135)",
+        "style.css에 .post-like-count 스타일이 추가되어 .post-comment-count와 동일한 형태로 표시된다 ✅ (line 470-477)",
+        "댓글 아이콘(말풍선)과 좋아요 아이콘(하트)이 각각의 카운트 옆에 나란히 표시된다 ✅"
+      ]
+    },
+    {
+      "id": "US-002",
+      "title": "게시글 썸네일 사이즈 업",
+      "description": "post-card-thumb의 너비/높이를 120px에서 심미적으로 적절한 크기로 증가시킨다.",
+      "passes": true,
+      "acceptanceCriteria": [
+        "style.css의 .post-card-thumb width/height가 120px에서 148px로 변경된다 ✅ (line 481-482)",
+        "모바일(768px) 브레이크포인트에서 88px → 100px으로 조정된다 ✅ (line 1244)",
+        "480px 이하에서는 기존 full-width 100% 방식이 유지된다 ✅"
+      ]
+    },
+    {
+      "id": "US-003",
+      "title": "카테고리 위젯 디자인 개선 및 호버 인터랙션",
+      "description": "카테고리 사이드바 위젯을 더 아름답게 디자인하고, 마우스 오버 시 자연스러운 애니메이션 효과를 추가한다.",
+      "passes": true,
+      "acceptanceCriteria": [
+        "각 카테고리 항목 hover 시 배경색 변화와 왼쪽 accent 바(border-left)가 나타나는 시각적 피드백이 추가된다 ✅",
+        "hover 트랜지션이 background, color, border-color, padding-left 모두에 적용되어 자연스럽다 ✅",
+        "카테고리 카운트(.cnt)가 소형 pill/badge 형태로 오른쪽에 표시된다 ✅",
+        "전체 분류 항목이 상단에 구분자와 함께 시각적으로 강조된다 ✅"
+      ]
+    },
+    {
+      "id": "US-004",
+      "title": "카테고리 선택 강조 자연스럽게 + 페이지 상단에 카테고리명 표시",
+      "description": "카테고리 클릭 시 사이드바 강조가 자연스럽고, 게시글 목록 상단에 어떤 카테고리인지 명확히 표시된다.",
+      "passes": true,
+      "acceptanceCriteria": [
+        "선택된 카테고리의 active 스타일이 color-mix로 자연스러운 tint로 변경된다 ✅ (line 1053-1061)",
+        "카테고리 목록 페이지(s_list)의 list-page-header에 '카테고리' 배지가 추가된다 ✅ (skin.html line 236-240)",
+        "list-page-badge 스타일이 추가되어 현재 카테고리가 명확하게 표시된다 ✅ (style.css line 853-865)"
+      ]
+    }
+  ]
+}

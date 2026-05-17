@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <title>[##_page_title_##]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="title" content="[##_page_title_##] :: [##_title_##]" />
+  <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Pre-paint theme init: runs before CSS renders to prevent flash -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('atm-theme');
+      var preferred = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = saved || preferred;
+    }());
+  </script>
+
+  <!-- Cover image override (skin option) -->
+  <s_if_var_cover-image>
+  <style>.hero-bg { background-image: url('[##_var_cover-image_##]') !important; }</style>
+  </s_if_var_cover-image>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script> (function () { var test = vhCheck();}()); </script>
+</head>
+<body id="[##_body_id_##]">
+<s_t3>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <h1 class="site-title">
+      <a href="[##_blog_link_##]">[##_title_##]</a>
+    </h1>
+    <nav class="site-nav" id="siteNav">
+      <a href="[##_blog_link_##]" class="nav-link">홈</a>
+      <a href="[##_taglog_link_##]" class="nav-link">태그</a>
+      <a href="[##_guestbook_link_##]" class="nav-link">방명록</a>
+
+      <!-- Search -->
+      <div class="search-wrap">
+        <button class="icon-btn search-toggle" id="searchToggle" aria-label="검색 열기" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <div class="search-dropdown" id="searchDropdown" role="search">
+          <form class="search-form" onsubmit="location.href='[##_blog_link_##]/search/'+encodeURIComponent(this.q.value);return false;">
+            <input type="text" name="q" class="search-input" placeholder="검색어를 입력하세요" autocomplete="off" aria-label="검색어">
+            <button type="submit" class="search-submit" aria-label="검색">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Dark/Light toggle -->
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+
+      <!-- Mobile menu toggle -->
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="사이드바 열기" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+  <div class="reading-progress-bar" id="readingProgress" role="progressbar" aria-label="읽기 진행도"></div>
+</header>
+
+<!-- ============================================================
+     AD: Revenue Upper
+     ============================================================ -->
+[##_revenue_list_upper_##]
+
+<!-- ============================================================
+     HERO (shown only on index page via CSS #tt-body-index scoping)
+     ============================================================ -->
+<section class="hero-section" aria-label="블로그 소개">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-info">
+      <h2 class="hero-title">[##_title_##]</h2>
+      <p class="hero-desc">[##_desc_##]</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAIN LAYOUT: 2-column (main + sidebar)
+     ============================================================ -->
+<div class="site-wrapper">
+
+  <main class="main-content" id="mainContent">
+
+    <!-- NOTICE -->
+    <s_notice_rep>
+    <s_index_article_rep>
+    <a href="[##_notice_rep_link_##]" class="notice-bar">
+      <span class="notice-chip" aria-label="공지사항">공지</span>
+      <span class="notice-text">[##_notice_rep_title_##]</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
+    </s_index_article_rep>
+    <s_permalink_article_rep>
+    <article class="post-detail" itemscope itemtype="http://schema.org/Article">
+      <header class="post-detail-header">
+        <div class="post-detail-meta">
+          <span class="post-category">공지사항</span>
+          <time class="post-date" itemprop="datePublished">[##_notice_rep_date_##]</time>
+        </div>
+        <h1 class="post-detail-title" itemprop="headline">[##_notice_rep_title_##]</h1>
+      </header>
+      <div class="post-content" itemprop="articleBody">
+        [##_notice_rep_desc_##]
+      </div>
+    </article>
+    </s_permalink_article_rep>
+    </s_notice_rep>
+
+    <!-- ========================================================
+         INDEX: Article list (rendered on index / category / archive pages)
+         PERMALINK: Single post detail
+         ======================================================== -->
+    <s_article_rep>
+    <s_permalink_article_rep>
+    <article class="post-detail" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-detail-header">
+        <div class="post-detail-meta">
+          <a href="[##_article_rep_category_link_##]" class="post-category">[##_article_rep_category_##]</a>
+          <time class="post-date" itemprop="datePublished">[##_article_rep_date_##]</time>
+          <s_rp_count>
+          <span class="post-comment-count" aria-label="댓글 수">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            [##_article_rep_rp_cnt_##]
+          </span>
+          </s_rp_count>
+        </div>
+        <h1 class="post-detail-title" itemprop="headline">[##_article_rep_title_##]</h1>
+      </header>
+
+      <div class="post-content" id="postContent" itemprop="articleBody">
+        [##_article_rep_desc_##]
+      </div>
+
+      <footer class="post-detail-footer">
+        <s_tag_label>
+        <div class="post-tags" aria-label="태그">[##_tag_label_rep_##]</div>
+        </s_tag_label>
+
+        <s_ad_div>
+        <div class="post-admin-bar">
+          <a href="[##_s_ad_m_link_##]" class="admin-btn">수정</a>
+          <a href="#" onclick="[##_s_ad_d_onclick_##]" class="admin-btn admin-btn-danger">삭제</a>
+        </div>
+        </s_ad_div>
+      </footer>
+
+      <!-- Prev / Next navigation -->
+      <nav class="post-nav" aria-label="이전/다음 글">
+        <s_article_prev>
+        <a href="[##_article_prev_link_##]" class="post-nav-item post-nav-prev">
+          <span class="post-nav-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            이전 글
+          </span>
+          <span class="post-nav-title">[##_article_prev_title_##]</span>
+        </a>
+        </s_article_prev>
+        <s_article_next>
+        <a href="[##_article_next_link_##]" class="post-nav-item post-nav-next">
+          <span class="post-nav-label">
+            다음 글
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+          <span class="post-nav-title">[##_article_next_title_##]</span>
+        </a>
+        </s_article_next>
+      </nav>
+
+      <!-- Related posts -->
+      <s_article_related>
+      <section class="related-posts">
+        <h2 class="related-posts-heading">같은 카테고리 글</h2>
+        <div class="related-posts-grid">
+          <s_article_related_rep>
+          <a href="[##_article_related_rep_link_##]" class="related-post-card [##_article_related_rep_type_##]">
+            <s_article_related_rep_thumbnail>
+            <div class="related-post-thumb">
+              <img src="[##_article_related_rep_thumbnail_link_##]" alt="" loading="lazy">
+            </div>
+            </s_article_related_rep_thumbnail>
+            <span class="related-post-title">[##_article_related_rep_title_##]</span>
+            <span class="related-post-date">[##_article_related_rep_date_##]</span>
+          </a>
+          </s_article_related_rep>
+        </div>
+      </section>
+      </s_article_related>
+
+      <!-- Comments (modern Tistory React comment system) -->
+      <s_rp>
+      <section class="comments-section" aria-label="댓글">
+        <h2 class="comments-heading">댓글</h2>
+        [##_comment_group_##]
+      </section>
+      </s_rp>
+    </article>
+    </s_permalink_article_rep>
+
+    <s_index_article_rep>
+    <article class="post-card">
+      <div class="post-card-inner">
+        <div class="post-card-body">
+          <div class="post-card-meta">
+            <a href="[##_article_rep_category_link_##]" class="post-category">[##_article_rep_category_##]</a>
+            <time class="post-date">[##_article_rep_date_##]</time>
+          </div>
+          <h2 class="post-card-title">
+            <a href="[##_article_rep_link_##]" class="post-card-link">[##_article_rep_title_##]</a>
+          </h2>
+          <p class="post-card-summary">[##_article_rep_summary_##]</p>
+          <div class="post-card-footer">
+            <s_rp_count>
+            <span class="post-comment-count" aria-label="댓글 수">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              [##_article_rep_rp_cnt_##]
+            </span>
+            </s_rp_count>
+          </div>
+        </div>
+        <s_article_rep_thumbnail>
+        <div class="post-card-thumb" aria-hidden="true">
+          <img src="[##_article_rep_thumbnail_url_##]" alt="" loading="lazy">
+        </div>
+        </s_article_rep_thumbnail>
+      </div>
+    </article>
+    </s_index_article_rep>
+    </s_article_rep>
+
+    <!-- ========================================================
+         PROTECTED: 비밀글 페이지
+         ======================================================== -->
+    <s_article_protected>
+    <s_permalink_article_rep>
+    <article class="post-detail">
+      <header class="post-detail-header">
+        <div class="post-detail-meta">
+          <a href="[##_article_rep_category_link_##]" class="post-category">[##_article_rep_category_##]</a>
+          <time class="post-date">[##_article_rep_date_##]</time>
+        </div>
+        <h1 class="post-detail-title">[##_article_rep_title_##]</h1>
+      </header>
+      <div class="post-content">
+        <div class="protected-area">
+          <p class="protected-message">비밀번호로 보호되어 있는 글입니다.</p>
+          <form class="protected-form" onsubmit="[##_article_dissolve_##]">
+            <input type="password" id="[##_article_password_##]" name="[##_article_password_##]" placeholder="비밀번호를 입력하세요" />
+            <button type="submit">확인</button>
+          </form>
+        </div>
+      </div>
+    </article>
+    </s_permalink_article_rep>
+    </s_article_protected>
+
+    <!-- ========================================================
+         PAGE REP: 공지사항 / 페이지 타입 글
+         ======================================================== -->
+    <s_page_rep>
+    <s_permalink_article_rep>
+    <article class="post-detail" itemscope itemtype="http://schema.org/Article">
+      <header class="post-detail-header">
+        <div class="post-detail-meta">
+          <span class="post-category">공지사항</span>
+          <time class="post-date" itemprop="datePublished">[##_article_rep_date_##]</time>
+        </div>
+        <h1 class="post-detail-title" itemprop="headline">[##_article_rep_title_##]</h1>
+      </header>
+      <div class="post-content" itemprop="articleBody">
+        [##_article_rep_desc_##]
+      </div>
+    </article>
+    </s_permalink_article_rep>
+    </s_page_rep>
+
+    <!-- ========================================================
+         LIST: Category / Tag / Search results
+         ======================================================== -->
+    <s_list>
+    <div class="list-page">
+      <div class="list-page-header">
+        <s_list_image>
+        <div class="list-page-cover" style="background-image:url('[##_list_image_##]')" aria-hidden="true"></div>
+        </s_list_image>
+        <div class="list-page-eyebrow">
+          <span class="list-page-badge">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            카테고리
+          </span>
+        </div>
+        <h2 class="list-page-title">
+          [##_list_conform_##]
+          <span class="list-page-count">[##_list_count_##]건</span>
+        </h2>
+        <p class="list-page-desc">[##_list_description_##]</p>
+      </div>
+
+      <s_list_empty>
+      <div class="list-empty">등록된 글이 없습니다.</div>
+      </s_list_empty>
+
+      <s_list_rep>
+      <article class="post-card">
+        <div class="post-card-inner">
+          <div class="post-card-body">
+            <div class="post-card-meta">
+              <a href="[##_list_rep_category_link_##]" class="post-category">[##_list_rep_category_##]</a>
+              <span class="post-date">[##_list_rep_regdate_##]</span>
+            </div>
+            <h2 class="post-card-title">
+              <a href="[##_list_rep_link_##]" class="post-card-link">[##_list_rep_title_text_##]</a>
+            </h2>
+            <p class="post-card-summary">[##_list_rep_summary_##]</p>
+            <div class="post-card-footer">
+              <span class="post-comment-count" aria-label="댓글 수">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                [##_list_rep_rp_cnt_##]
+              </span>
+            </div>
+          </div>
+          <s_list_rep_thumbnail>
+          <div class="post-card-thumb" aria-hidden="true">
+            <img src="[##_list_rep_thumbnail_url_##]" alt="" loading="lazy">
+          </div>
+          </s_list_rep_thumbnail>
+        </div>
+      </article>
+      </s_list_rep>
+    </div>
+    </s_list>
+
+    <!-- ========================================================
+         PAGINATION
+         ======================================================== -->
+    <s_paging>
+    <nav class="pagination" aria-label="페이지 탐색">
+      <a [##_prev_page_##] class="page-btn page-prev" aria-label="이전 페이지">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </a>
+      <span class="page-numbers">
+        <s_paging_rep>
+        <a [##_paging_rep_link_##] class="page-num">[##_paging_rep_link_num_##]</a>
+        </s_paging_rep>
+      </span>
+      <a [##_next_page_##] class="page-btn page-next" aria-label="다음 페이지">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </nav>
+    </s_paging>
+
+    <!-- ========================================================
+         TAG CLOUD PAGE
+         ======================================================== -->
+    <s_tag>
+    <div class="tag-cloud-page">
+      <h2 class="list-page-title">태그</h2>
+      <div class="tag-cloud">
+        <s_tag_rep>
+        <a href="[##_tag_link_##]" class="tag-item [##_tag_class_##]">[##_tag_name_##]</a>
+        </s_tag_rep>
+      </div>
+    </div>
+    </s_tag>
+
+    <!-- ========================================================
+         LOCAL LOG PAGE
+         ======================================================== -->
+    <s_local>
+    <div class="tag-cloud-page">
+      <h2 class="list-page-title">위치로그</h2>
+      <s_local_spot_rep>
+        <p class="local-spot">[##_local_spot_##]</p>
+      </s_local_spot_rep>
+      <s_local_info_rep>
+        <p class="local-info" style="padding-left:[##_local_info_depth_##]px">
+          <a href="[##_local_info_link_##]">[##_local_info_title_##]</a>
+        </p>
+      </s_local_info_rep>
+    </div>
+    </s_local>
+
+    <!-- ========================================================
+         GUESTBOOK PAGE
+         ======================================================== -->
+    <s_guest>
+    <div class="guestbook-page">
+      <h2 class="list-page-title">방명록</h2>
+      [##_guestbook_group_##]
+    </div>
+    </s_guest>
+
+  </main><!-- /.main-content -->
+
+  <!-- ========================================================
+       SIDEBAR
+       ======================================================== -->
+  <aside class="site-sidebar" id="siteSidebar" aria-label="사이드바">
+    <s_sidebar>
+      <s_sidebar_element>
+        <!-- 프로필 -->
+        <div class="sidebar-widget sidebar-profile">
+          <div class="sidebar-profile-avatar" aria-hidden="true">[##_blog_image_##]</div>
+          <p class="sidebar-profile-name">[##_blogger_##]</p>
+          <p class="sidebar-profile-desc">[##_desc_##]</p>
+          <div class="profile-subscribe-wrap">
+            [##_subscription_button_##]
+          </div>
+          <div class="profile-admin-btns [##_role_group_##]">
+            <button type="button" class="profile-admin-btn btn-write">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              글쓰기
+            </button>
+            <button type="button" class="profile-admin-btn btn-blog-manage">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              블로그 관리
+            </button>
+          </div>
+        </div>
+      </s_sidebar_element>
+    </s_sidebar>
+    <s_sidebar>
+      <s_sidebar_element>
+        <!-- 카테고리 -->
+        <div class="sidebar-widget sidebar-category">
+          <h3 class="sidebar-widget-title">CATEGORIES</h3>
+          [##_category_list_##]
+        </div>
+      </s_sidebar_element>
+      <s_sidebar_element>
+        <!-- 최근에 올라온 글 -->
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">RECENT POSTS</h3>
+          <ul class="sidebar-recent-list">
+            <s_rctps_rep>
+            <li class="sidebar-recent-item">
+              <a href="[##_rctps_rep_link_##]" class="sidebar-recent-link">
+                <span class="sidebar-recent-title">[##_rctps_rep_title_##]</span>
+                <span class="sidebar-recent-date">[##_rctps_rep_simple_date_##]</span>
+              </a>
+            </li>
+            </s_rctps_rep>
+          </ul>
+        </div>
+      </s_sidebar_element>
+      <s_sidebar_element>
+        <!-- 최근에 달린 댓글 -->
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">RECENT COMMENTS</h3>
+          <ul class="sidebar-recent-list">
+            <s_rctrp_rep>
+            <li class="sidebar-recent-item">
+              <a href="[##_rctrp_rep_link_##]" class="sidebar-recent-link">
+                <span class="sidebar-recent-title">[##_rctrp_rep_desc_##]</span>
+                <span class="sidebar-recent-date">[##_rctrp_rep_name_##]</span>
+              </a>
+            </li>
+            </s_rctrp_rep>
+          </ul>
+        </div>
+      </s_sidebar_element>
+      <s_sidebar_element>
+        <!-- 공지사항 -->
+        <s_rct_notice>
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">NOTICE</h3>
+          <ul class="sidebar-recent-list">
+            <s_rct_notice_rep>
+            <li class="sidebar-recent-item">
+              <a href="[##_notice_rep_link_##]" class="sidebar-recent-link">
+                <span class="sidebar-recent-title">[##_notice_rep_title_##]</span>
+              </a>
+            </li>
+            </s_rct_notice_rep>
+          </ul>
+        </div>
+        </s_rct_notice>
+      </s_sidebar_element>
+      <s_sidebar_element>
+        <!-- 방문자수 -->
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">VISITORS</h3>
+          <div class="sidebar-counter">
+            <div class="sidebar-counter-item">
+              <span class="sidebar-counter-label">Total</span>
+              <span class="sidebar-counter-value">[##_count_total_##]</span>
+            </div>
+            <div class="sidebar-counter-item">
+              <span class="sidebar-counter-label">Today</span>
+              <span class="sidebar-counter-value">[##_count_today_##]</span>
+            </div>
+            <div class="sidebar-counter-item">
+              <span class="sidebar-counter-label">Yesterday</span>
+              <span class="sidebar-counter-value">[##_count_yesterday_##]</span>
+            </div>
+          </div>
+        </div>
+      </s_sidebar_element>
+      <s_sidebar_element>
+        <!-- 태그 -->
+        <div class="sidebar-widget">
+          <h3 class="sidebar-widget-title">TAGS</h3>
+          <div class="sidebar-tag-cloud">
+            <s_random_tags>
+            <a href="[##_tag_link_##]" class="sidebar-tag-item [##_tag_class_##]">[##_tag_name_##]</a>
+            </s_random_tags>
+          </div>
+        </div>
+      </s_sidebar_element>
+    </s_sidebar>
+
+    <!-- TOC: shown by JS when post has 2+ headings -->
+    <div class="sidebar-widget sidebar-toc" id="tocWidget" aria-label="목차">
+      <h3 class="sidebar-widget-title">목차</h3>
+      <nav class="toc-nav" id="tocNav"></nav>
+    </div>
+  </aside>
+
+</div><!-- /.site-wrapper -->
+
+<!-- ============================================================
+     AD: Revenue Lower
+     ============================================================ -->
+[##_revenue_list_lower_##]
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-copy">
+      &copy; <span id="footerYear"></span> [##_blogger_##].
+      Powered by <a href="https://www.tistory.com" rel="noopener noreferrer">Tistory</a>.
+    </p>
+    <nav class="footer-nav" aria-label="푸터 내비게이션">
+      <a href="[##_rss_url_##]" class="footer-link">RSS</a>
+      <a href="[##_taglog_link_##]" class="footer-link">태그</a>
+      <a href="[##_guestbook_link_##]" class="footer-link">방명록</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* Footer year */
+  var yearEl = document.getElementById('footerYear');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* Dark / light theme toggle */
+  var themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('atm-theme', next);
+    });
+  }
+
+  /* Reading progress bar */
+  var progressBar = document.getElementById('readingProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', function () {
+      var st = window.pageYOffset;
+      var dh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progressBar.style.width = (dh > 0 ? Math.min(st / dh * 100, 100) : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* Mobile sidebar toggle */
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var sidebar = document.getElementById('siteSidebar');
+  if (mobileBtn && sidebar) {
+    mobileBtn.addEventListener('click', function () {
+      var open = sidebar.classList.toggle('is-open');
+      document.body.classList.toggle('sidebar-open', open);
+      mobileBtn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', function (e) {
+      if (sidebar.classList.contains('is-open') &&
+          !sidebar.contains(e.target) && e.target !== mobileBtn) {
+        sidebar.classList.remove('is-open');
+        document.body.classList.remove('sidebar-open');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* Search dropdown */
+  var searchToggle = document.getElementById('searchToggle');
+  var searchDropdown = document.getElementById('searchDropdown');
+  if (searchToggle && searchDropdown) {
+    searchToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = searchDropdown.classList.toggle('is-open');
+      searchToggle.setAttribute('aria-expanded', String(open));
+      if (open) searchDropdown.querySelector('.search-input').focus();
+    });
+    document.addEventListener('click', function (e) {
+      if (!searchDropdown.contains(e.target)) {
+        searchDropdown.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        searchDropdown.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  /* TOC: build from post headings, scroll-spy via IntersectionObserver */
+  var postContent = document.getElementById('postContent');
+  var tocWidget = document.getElementById('tocWidget');
+  var tocNav = document.getElementById('tocNav');
+  if (postContent && tocWidget && tocNav) {
+    var headings = Array.prototype.slice.call(postContent.querySelectorAll('h2, h3'));
+    if (headings.length >= 2) {
+      tocWidget.style.display = 'block';
+      var counter = 0;
+      headings.forEach(function (h) {
+        if (!h.id) h.id = 'toc-' + (counter++);
+      });
+      var ul = document.createElement('ul');
+      ul.className = 'toc-list';
+      headings.forEach(function (h) {
+        var li = document.createElement('li');
+        li.className = 'toc-item' + (h.tagName === 'H3' ? ' toc-h3' : '');
+        var a = document.createElement('a');
+        a.className = 'toc-link';
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        a.dataset.id = h.id;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      tocNav.appendChild(ul);
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              tocNav.querySelectorAll('.toc-link').forEach(function (l) {
+                l.classList.remove('is-active');
+              });
+              var activeLink = tocNav.querySelector('[data-id="' + entry.target.id + '"]');
+              if (activeLink) activeLink.classList.add('is-active');
+            }
+          });
+        }, { rootMargin: '-56px 0px -60% 0px', threshold: 0 });
+        headings.forEach(function (h) { observer.observe(h); });
+      }
+
+      tocNav.addEventListener('click', function (e) {
+        var link = e.target.closest('.toc-link');
+        if (!link) return;
+        e.preventDefault();
+        var target = document.getElementById(link.dataset.id);
+        if (target) {
+          var headerEl = document.getElementById('siteHeader');
+          var offset = (headerEl ? headerEl.offsetHeight : 60) + 16;
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.pageYOffset - offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  }
+
+  var adminBtns = document.querySelector('.profile-admin-btns');
+  if (adminBtns && adminBtns.classList.length > 1) {
+    adminBtns.style.display = 'flex';
+  }
+  var btnWrite = document.querySelector('.btn-write');
+  if (btnWrite) {
+    btnWrite.addEventListener('click', function() {
+      window.location.href = '[##_blog_link_##]/manage/newpost/';
+    });
+  }
+  var btnBlogManage = document.querySelector('.btn-blog-manage');
+  if (btnBlogManage) {
+    btnBlogManage.addEventListener('click', function() {
+      window.location.href = '[##_blog_link_##]/manage/';
+    });
+  }
+
+  /* Format category: remove parentheses and tree icons */
+  var categoryWidget = document.querySelector('.sidebar-category');
+  if (categoryWidget) {
+    // 1. Remove parentheses from counts
+    var countSpans = categoryWidget.querySelectorAll('.c_cnt, .cnt');
+    countSpans.forEach(function(span) {
+      span.textContent = span.textContent.replace(/[\(\)]/g, '');
+    });
+
+    // 2. Hide only the "분류 전체보기" anchor — not its container li (which may hold the category_list)
+    var linkTitEl = categoryWidget.querySelector('.link_tit');
+    if (linkTitEl) {
+      if (linkTitEl.tagName === 'A') {
+        linkTitEl.style.display = 'none';
+      } else {
+        var linkTitA = linkTitEl.querySelector(':scope > a');
+        if (linkTitA) linkTitA.style.display = 'none';
+      }
+    }
+
+    // 3. Clean up tree characters or images inside links
+    var catLinks = categoryWidget.querySelectorAll('a');
+    catLinks.forEach(function(link) {
+      var imgs = link.querySelectorAll('img');
+      imgs.forEach(function(img) { img.style.display = 'none'; });
+
+      link.childNodes.forEach(function(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          // Remove tree drawing characters often used by Tistory or legacy browsers
+          var text = node.textContent.replace(/[└├│─⊞⊟]/g, '').trim();
+          // Remove parentheses if count is just text
+          text = text.replace(/\s*\(\d+\)/g, function(m) {
+            return ' ' + m.replace(/[\(\)]/g, '');
+          });
+          if (node.textContent !== text) {
+            node.textContent = text;
+          }
+        }
+      });
+    });
+  }
+}());
+</script>
+
+</s_t3>
+</body>
+</html>

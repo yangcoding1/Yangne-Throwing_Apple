@@ -1,0 +1,38 @@
+{
+  "title": "Homepage: Show subscribe button and category list",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Split s_sidebar blocks so category widget renders independently",
+      "acceptanceCriteria": [
+        "skin.html has two separate <s_sidebar> blocks — one for profile, one for category",
+        "Each <s_sidebar> contains exactly one <s_sidebar_element>",
+        "The category <s_sidebar_element> contains the sidebar-category div with [##_category_list_##]"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "Category list is visible with # prefix format matching category.png",
+      "acceptanceCriteria": [
+        "CSS hides only the anchor inside .link_tit, not the li container itself (.sidebar-category .link_tit > a and .sidebar-category a.link_tit are display:none)",
+        "CSS does NOT have .sidebar-category .link_tit { display: none } (which would hide nested category_list)",
+        "JS linkTitEl logic hides only the direct <a> child, not the li container",
+        ".sidebar-category a::before adds '#' prefix for category links",
+        ".sidebar-category .c_cnt strips parentheses via JS"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "Subscribe button (구독하기) is visible and styled in profile sidebar",
+      "acceptanceCriteria": [
+        "style.css contains .profile-subscribe-wrap .button-subscription with display: flex !important",
+        "The button has background: var(--color-accent) !important and color: #fff !important",
+        ".profile-subscribe-wrap .button-subscription:hover rule exists",
+        "dark theme override for .button-subscription exists"
+      ],
+      "passes": true
+    }
+  ]
+}
