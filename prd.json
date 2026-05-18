@@ -1,0 +1,74 @@
+{
+  "version": "1.0",
+  "title": "Tistory Skin — Static Preview Pages",
+  "description": "Create standalone HTML preview files for the Yangne-Throwing_Apple Tistory skin with realistic Korean mock content.",
+  "stories": [
+    {
+      "id": "US-001",
+      "title": "Preview gallery index page",
+      "acceptanceCriteria": [
+        "preview/index.html exists and links to all 5 preview HTML files",
+        "Each card shows an iframe thumbnail of the actual preview",
+        "The index page renders without errors"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-002",
+      "title": "Home page light mode preview",
+      "acceptanceCriteria": [
+        "preview/01-home-light.html exists",
+        "data-theme='light' on <html>, id='tt-body-index' on <body> (triggers hero section)",
+        "6 mock post cards render with title, category chip, date, summary, comment count",
+        "Sidebar renders with profile (owner admin buttons visible), categories, recent posts, visitors, tags widgets",
+        "Notice bar is visible at the top of main content"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-003",
+      "title": "Home page dark mode preview",
+      "acceptanceCriteria": [
+        "preview/02-home-dark.html exists",
+        "data-theme='dark' on <html>",
+        "Hero section shows dark gradient (#0f0c29 to #302b63)",
+        "Dark CSS variables applied: background #111111, surface #1C1C1E"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-004",
+      "title": "Post detail page light mode preview",
+      "acceptanceCriteria": [
+        "preview/03-post-light.html exists",
+        "Post content has h2+h3 headings so TOC JS auto-builds the sidebar widget",
+        "Post content includes: blockquote, code block (pre/code), unordered list, table",
+        "Post navigation (prev/next cards) is rendered below the article",
+        "Related posts grid (3 cards) is rendered",
+        "Tag chips are shown in the post footer"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-005",
+      "title": "Post detail page dark mode preview",
+      "acceptanceCriteria": [
+        "preview/04-post-dark.html exists",
+        "data-theme='dark' on <html>",
+        "Same rich post content as light version"
+      ],
+      "passes": true
+    },
+    {
+      "id": "US-006",
+      "title": "Category list page preview",
+      "acceptanceCriteria": [
+        "preview/05-category.html exists",
+        "list-page-header shows: category badge (CATEGORY), category name (AI/ML), count (8건)",
+        "5 post cards filtered to AI/ML category are shown",
+        "AI/ML category is highlighted with 'selected' class in the sidebar"
+      ],
+      "passes": true
+    }
+  ]
+}

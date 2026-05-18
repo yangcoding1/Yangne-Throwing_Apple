@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Preview Gallery — Yang의 사과던지기</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f0f13;
+      --surface: #1a1a22;
+      --surface2: #22222e;
+      --border: rgba(255,255,255,0.08);
+      --text-1: #f0f0f5;
+      --text-2: #8e8e9a;
+      --text-3: #555560;
+      --accent: #3182F6;
+      --accent-bg: rgba(49,130,246,0.12);
+      --radius: 16px;
+      --font: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-1);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Header */
+    .gallery-header {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .gallery-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gallery-logo-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+    .gallery-logo-text {
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .gallery-logo-sub {
+      font-size: 0.75rem;
+      color: var(--text-2);
+      margin-left: 4px;
+    }
+    .gallery-badge {
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-weight: 600;
+    }
+
+    /* Hero */
+    .gallery-hero {
+      text-align: center;
+      padding: 64px 32px 48px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .gallery-hero-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .gallery-hero-title {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.18;
+      margin-bottom: 14px;
+    }
+    .gallery-hero-title span {
+      background: linear-gradient(135deg, #667eea, #764ba2, #f5576c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gallery-hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.7;
+    }
+
+    /* Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 20px;
+      padding: 0 32px 64px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Card */
+    .preview-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.25s cubic-bezier(0.4,0,0.2,1),
+                  border-color 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .preview-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border-color: rgba(49,130,246,0.3);
+    }
+
+    /* Iframe viewport */
+    .preview-viewport {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      background: #1a1a22;
+      cursor: pointer;
+    }
+    .preview-viewport::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
+    .preview-iframe {
+      width: 1280px;
+      height: 900px;
+      border: none;
+      transform: scale(0.285);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    /* Theme indicator overlay */
+    .preview-theme-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: 100px;
+    }
+    .theme-light { background: rgba(255,255,255,0.9); color: #1d1d1f; }
+    .theme-dark  { background: rgba(28,28,30,0.9); color: #f5f5f7; border: 1px solid rgba(255,255,255,0.15); }
+
+    /* Card info */
+    .preview-info {
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      flex: 1;
+    }
+    .preview-info-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .preview-info-type {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-3);
+    }
+    .preview-info-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-1);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .preview-open-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-bg);
+      padding: 7px 14px;
+      border-radius: 10px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .preview-open-btn:hover {
+      background: rgba(49,130,246,0.22);
+      transform: translateY(-1px);
+    }
+
+    /* Featured card (spans 2 cols on wide screens) */
+    @media (min-width: 800px) {
+      .preview-card.featured {
+        grid-column: span 2;
+      }
+      .preview-card.featured .preview-viewport {
+        height: 340px;
+      }
+      .preview-card.featured .preview-iframe {
+        width: 1440px;
+        height: 900px;
+        transform: scale(0.35);
+      }
+    }
+
+    /* Footer */
+    .gallery-footer {
+      text-align: center;
+      padding: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: var(--text-3);
+    }
+
+    @media (max-width: 600px) {
+      .gallery-hero { padding: 40px 20px 32px; }
+      .gallery-hero-title { font-size: 1.8rem; }
+      .gallery-grid { grid-template-columns: 1fr; padding: 0 16px 40px; gap: 14px; }
+      .gallery-header { padding: 16px 20px; }
+      .preview-card.featured { grid-column: span 1; }
+      .preview-card.featured .preview-viewport { height: 260px; }
+      .preview-card.featured .preview-iframe { width: 1280px; transform: scale(0.285); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="gallery-header">
+  <div class="gallery-logo">
+    <div class="gallery-logo-dot"></div>
+    <span class="gallery-logo-text">Yang의 사과던지기<span class="gallery-logo-sub"> · Skin Preview</span></span>
+  </div>
+  <span class="gallery-badge">Yangne-Throwing_Apple</span>
+</header>
+
+<div class="gallery-hero">
+  <p class="gallery-hero-label">Preview Gallery</p>
+  <h1 class="gallery-hero-title">티스토리 스킨<br><span>미리보기 갤러리</span></h1>
+  <p class="gallery-hero-desc">Apple · Toss 감성의 Yangne-Throwing_Apple 스킨.<br>각 페이지를 클릭해 전체 화면으로 확인하세요.</p>
+</div>
+
+<div class="gallery-grid">
+
+  <!-- 1. Home Light (featured) -->
+  <div class="preview-card featured">
+    <a href="01-home-light.html" target="_blank">
+      <div class="preview-viewport">
+        <iframe src="01-home-light.html" class="preview-iframe" title="홈 페이지 라이트 모드"></iframe>
+        <span class="preview-theme-badge theme-light">Light</span>
+      </div>
+    </a>
+    <div class="preview-info">
+      <div class="preview-info-left">
+        <span class="preview-info-type">메인 · 홈</span>
+        <span class="preview-info-title">홈 페이지 — 라이트 모드</span>
+      </div>
+      <a href="01-home-light.html" target="_blank" class="preview-open-btn">
+        열기
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2. Home Dark -->
+  <div class="preview-card">
+    <a href="02-home-dark.html" target="_blank">
+      <div class="preview-viewport">
+        <iframe src="02-home-dark.html" class="preview-iframe" title="홈 페이지 다크 모드"></iframe>
+        <span class="preview-theme-badge theme-dark">Dark</span>
+      </div>
+    </a>
+    <div class="preview-info">
+      <div class="preview-info-left">
+        <span class="preview-info-type">메인 · 홈</span>
+        <span class="preview-info-title">홈 페이지 — 다크 모드</span>
+      </div>
+      <a href="02-home-dark.html" target="_blank" class="preview-open-btn">
+        열기
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3. Post Light -->
+  <div class="preview-card">
+    <a href="03-post-light.html" target="_blank">
+      <div class="preview-viewport">
+        <iframe src="03-post-light.html" class="preview-iframe" title="포스트 상세 라이트 모드"></iframe>
+        <span class="preview-theme-badge theme-light">Light</span>
+      </div>
+    </a>
+    <div class="preview-info">
+      <div class="preview-info-left">
+        <span class="preview-info-type">포스트 상세</span>
+        <span class="preview-info-title">게시글 페이지 — 라이트 모드</span>
+      </div>
+      <a href="03-post-light.html" target="_blank" class="preview-open-btn">
+        열기
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 4. Post Dark -->
+  <div class="preview-card">
+    <a href="04-post-dark.html" target="_blank">
+      <div class="preview-viewport">
+        <iframe src="04-post-dark.html" class="preview-iframe" title="포스트 상세 다크 모드"></iframe>
+        <span class="preview-theme-badge theme-dark">Dark</span>
+      </div>
+    </a>
+    <div class="preview-info">
+      <div class="preview-info-left">
+        <span class="preview-info-type">포스트 상세</span>
+        <span class="preview-info-title">게시글 페이지 — 다크 모드</span>
+      </div>
+      <a href="04-post-dark.html" target="_blank" class="preview-open-btn">
+        열기
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- 5. Category -->
+  <div class="preview-card">
+    <a href="05-category.html" target="_blank">
+      <div class="preview-viewport">
+        <iframe src="05-category.html" class="preview-iframe" title="카테고리 목록 페이지"></iframe>
+        <span class="preview-theme-badge theme-light">Light</span>
+      </div>
+    </a>
+    <div class="preview-info">
+      <div class="preview-info-left">
+        <span class="preview-info-type">카테고리 목록</span>
+        <span class="preview-info-title">카테고리 페이지 — AI/ML</span>
+      </div>
+      <a href="05-category.html" target="_blank" class="preview-open-btn">
+        열기
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="gallery-footer">
+  Yangne-Throwing_Apple · Tistory Skin Preview &mdash; 각 카드를 클릭하면 전체 화면으로 열립니다
+</footer>
+
+</body>
+</html>

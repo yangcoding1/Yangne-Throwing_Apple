@@ -1,0 +1,16 @@
+.preview-nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(0,0,0,0.88); backdrop-filter: blur(12px);
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; font-family: -apple-system, sans-serif;
+  font-size: 0.72rem; overflow-x: auto; white-space: nowrap;
+}
+.preview-nav span { color: rgba(255,255,255,0.5); margin-right: 4px; }
+.preview-nav a {
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  padding: 4px 10px; border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+.preview-nav a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+.preview-nav a.active { background: var(--color-accent); color: #fff; }
+body { padding-bottom: 44px; }

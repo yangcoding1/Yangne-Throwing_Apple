@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <title>포스트 (라이트) — Yang의 사과던지기</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="./preview-nav.css">
+</head>
+<body id="tt-body-page">
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <h1 class="site-title"><a href="01-home-light.html">Yang의 사과던지기</a></h1>
+    <nav class="site-nav" id="siteNav">
+      <a href="01-home-light.html" class="nav-link">홈</a>
+      <a href="#" class="nav-link">태그</a>
+      <a href="#" class="nav-link">방명록</a>
+      <div class="search-wrap">
+        <button class="icon-btn search-toggle" id="searchToggle" aria-label="검색 열기" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <div class="search-dropdown" id="searchDropdown" role="search">
+          <form class="search-form" onsubmit="return false;">
+            <input type="text" name="q" class="search-input" placeholder="검색어를 입력하세요" autocomplete="off" aria-label="검색어">
+            <button type="submit" class="search-submit" aria-label="검색">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="사이드바 열기" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </nav>
+  </div>
+  <div class="reading-progress-bar" id="readingProgress" role="progressbar" aria-label="읽기 진행도"></div>
+</header>
+
+<!-- MAIN LAYOUT (no hero on post page) -->
+<div class="site-wrapper">
+  <main class="main-content" id="mainContent">
+
+    <!-- Post Detail -->
+    <article class="post-detail" itemscope itemtype="http://schema.org/BlogPosting">
+      <header class="post-detail-header">
+        <div class="post-detail-top-row">
+          <div class="post-detail-meta">
+            <a href="#" class="post-category">AI/ML</a>
+            <time class="post-date" itemprop="datePublished">2026.05.12</time>
+            <span class="post-comment-count" aria-label="댓글 수">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              14
+            </span>
+          </div>
+          <div class="post-admin-bar">
+            <a href="#" class="admin-btn">수정</a>
+            <a href="#" class="admin-btn admin-btn-danger">삭제</a>
+          </div>
+        </div>
+        <h1 class="post-detail-title" itemprop="headline">Claude API로 나만의 AI 글쓰기 어시스턴트 만들기</h1>
+      </header>
+
+      <div class="post-content" id="postContent" itemprop="articleBody">
+
+        <p>Anthropic의 Claude API를 이용하면 강력한 AI 기능을 손쉽게 내 서비스에 녹여낼 수 있습니다. 이번 글에서는 <strong>개인화된 글쓰기 어시스턴트</strong>를 처음부터 만들어보겠습니다. 프롬프트 캐싱으로 비용을 절감하고, 스트리밍으로 사용자 경험을 끌어올리는 방법까지 모두 담았습니다.</p>
+
+        <h2>시작하기 전에</h2>
+
+        <p>Claude API를 사용하려면 몇 가지 사전 준비가 필요합니다. 이 섹션에서는 개발 환경 설정부터 API 키 발급까지 차근차근 살펴보겠습니다.</p>
+
+        <h3>개발 환경 준비</h3>
+
+        <p>이 프로젝트는 Python 3.10+ 또는 Node.js 18+에서 동작합니다. 아래 두 가지 방법 중 편한 것을 선택하세요.</p>
+
+        <ul>
+          <li>Python: <code>anthropic</code> 패키지 설치</li>
+          <li>Node.js: <code>@anthropic-ai/sdk</code> 패키지 설치</li>
+          <li>API 키 발급 후 환경변수 <code>ANTHROPIC_API_KEY</code> 설정</li>
+        </ul>
+
+        <h3>API 키 발급</h3>
+
+        <p>Anthropic Console에서 계정을 생성하고 API 키를 발급받으세요. 키는 외부에 노출되지 않도록 반드시 <code>.env</code> 파일에 보관하고 <code>.gitignore</code>에 추가해야 합니다.</p>
+
+        <blockquote>
+          <p><strong>보안 팁:</strong> API 키는 절대 코드에 하드코딩하지 마세요. 환경변수나 시크릿 매니저를 사용하는 것이 원칙입니다.</p>
+        </blockquote>
+
+        <h2>Claude API 기본 사용법</h2>
+
+        <p>SDK를 설치했다면 이제 첫 번째 요청을 보내볼 차례입니다. Messages API의 기본 구조를 이해하면 이후 모든 활용이 쉬워집니다.</p>
+
+        <h3>Python SDK로 첫 요청 보내기</h3>
+
+        <pre><code>import anthropic
+
+client = anthropic.Anthropic()
+
+message = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    messages=[
+        {
+            "role": "user",
+            "content": "블로그 포스트 초안을 작성해주세요."
+        }
+    ]
+)
+
+print(message.content[0].text)</code></pre>
+
+        <h3>시스템 프롬프트 설정</h3>
+
+        <p>글쓰기 어시스턴트의 성격과 규칙을 정의하는 시스템 프롬프트가 핵심입니다. 아래와 같이 설정하면 일관된 문체로 글을 생성할 수 있습니다.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>파라미터</th>
+              <th>설명</th>
+              <th>권장 값</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>model</code></td>
+              <td>사용할 Claude 모델 ID</td>
+              <td>claude-sonnet-4-6</td>
+            </tr>
+            <tr>
+              <td><code>max_tokens</code></td>
+              <td>최대 응답 토큰 수</td>
+              <td>4096 (장문 생성 시)</td>
+            </tr>
+            <tr>
+              <td><code>temperature</code></td>
+              <td>창의성 조절 (0~1)</td>
+              <td>0.7 (균형)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>프롬프트 캐싱으로 비용 절감</h2>
+
+        <p>Prompt Caching은 시스템 프롬프트처럼 반복적으로 사용되는 내용을 캐시에 저장해 API 비용을 최대 <strong>90%</strong>까지 줄여주는 기능입니다.</p>
+
+        <h3>캐싱 적용 방법</h3>
+
+        <pre><code>message = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    system=[
+        {
+            "type": "text",
+            "text": "당신은 전문 블로그 작가입니다...",
+            "cache_control": {"type": "ephemeral"}  # 캐싱 적용
+        }
+    ],
+    messages=[{"role": "user", "content": user_input}]
+)</code></pre>
+
+        <h2>스트리밍으로 UX 개선</h2>
+
+        <p>긴 글을 생성할 때 응답이 완전히 완성될 때까지 사용자를 기다리게 하면 불편합니다. 스트리밍을 활용하면 토큰이 생성되는 즉시 화면에 표시할 수 있습니다.</p>
+
+        <h3>스트리밍 구현</h3>
+
+        <pre><code>with client.messages.stream(
+    model="claude-sonnet-4-6",
+    max_tokens=2048,
+    messages=[{"role": "user", "content": prompt}]
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="", flush=True)</code></pre>
+
+        <h2>마무리</h2>
+
+        <p>Claude API를 활용한 글쓰기 어시스턴트의 기초를 살펴보았습니다. 프롬프트 캐싱과 스트리밍을 조합하면 빠르고 경제적인 AI 도구를 만들 수 있습니다. 다음 포스트에서는 대화 히스토리 관리와 RAG 패턴을 더해 더 강력한 어시스턴트로 발전시키는 방법을 알아보겠습니다.</p>
+
+      </div>
+
+      <footer class="post-detail-footer">
+        <div class="post-tags" aria-label="태그">
+          <a href="#">Claude</a>
+          <a href="#">AI</a>
+          <a href="#">Python</a>
+          <a href="#">LLM</a>
+          <a href="#">API</a>
+          <a href="#">글쓰기</a>
+        </div>
+      </footer>
+
+      <!-- Post Nav -->
+      <nav class="post-nav" aria-label="이전/다음 글">
+        <a href="#" class="post-nav-item post-nav-prev">
+          <span class="post-nav-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            이전 글
+          </span>
+          <span class="post-nav-title">SwiftUI matchedGeometryEffect 완전 정복</span>
+        </a>
+        <a href="#" class="post-nav-item post-nav-next">
+          <span class="post-nav-label">
+            다음 글
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </span>
+          <span class="post-nav-title">Figma Variables로 디자인 토큰 시스템 구축하기</span>
+        </a>
+      </nav>
+
+      <!-- Related Posts -->
+      <section class="related-posts">
+        <h2 class="related-posts-heading">같은 카테고리 글</h2>
+        <div class="related-posts-grid">
+          <a href="#" class="related-post-card">
+            <div class="related-post-thumb">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#f093fb,#f5576c);"></div>
+            </div>
+            <span class="related-post-title">GPT-4o vs Claude 3.5: 코딩 어시스턴트 성능 비교</span>
+            <span class="related-post-date">2026.04.18</span>
+          </a>
+          <a href="#" class="related-post-card">
+            <div class="related-post-thumb">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#667eea,#764ba2);"></div>
+            </div>
+            <span class="related-post-title">RAG 패턴으로 사내 문서 검색 봇 만들기</span>
+            <span class="related-post-date">2026.04.05</span>
+          </a>
+          <a href="#" class="related-post-card">
+            <div class="related-post-thumb">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#43e97b,#38f9d7);"></div>
+            </div>
+            <span class="related-post-title">Fine-tuning 없이 LLM 성능 높이기: 프롬프트 엔지니어링</span>
+            <span class="related-post-date">2026.03.28</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Comments placeholder -->
+      <section class="comments-section" aria-label="댓글">
+        <h2 class="comments-heading">댓글 <span style="font-size:0.85rem;font-weight:400;color:var(--color-text-2);">(14)</span></h2>
+        <p style="font-size:0.875rem;color:var(--color-text-2);padding:20px 0;">댓글은 Tistory 댓글 시스템에 의해 렌더링됩니다.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="site-sidebar" id="siteSidebar" aria-label="사이드바">
+
+    <!-- Profile -->
+    <div class="sidebar-widget sidebar-profile">
+      <div class="sidebar-profile-avatar" aria-hidden="true" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:1.4rem;font-weight:700;font-family:sans-serif;">Y</div>
+      <p class="sidebar-profile-name">Yang</p>
+      <p class="sidebar-profile-desc">개발, 디자인, 그리고 일상을 기록합니다.</p>
+      <div class="profile-admin-btns owner">
+        <button type="button" class="profile-admin-btn btn-write">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          글쓰기
+        </button>
+        <button type="button" class="profile-admin-btn btn-blog-manage">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          블로그 관리
+        </button>
+      </div>
+    </div>
+
+    <!-- TOC — auto-built by JS from #postContent headings -->
+    <div class="sidebar-widget sidebar-toc" id="tocWidget" aria-label="목차">
+      <h3 class="sidebar-widget-title">목차</h3>
+      <nav class="toc-nav" id="tocNav"></nav>
+    </div>
+
+    <!-- Categories -->
+    <div class="sidebar-widget sidebar-category">
+      <h3 class="sidebar-widget-title">CATEGORIES</h3>
+      <ul class="tt_category">
+        <li class="link_tit"><a href="#">분류 전체보기 <span class="c_cnt">69</span></a>
+          <ul class="category_list">
+            <li><a href="#">iOS/Swift <span class="c_cnt">12</span></a>
+              <ul>
+                <li><a href="#" class="link_sub_item">SwiftUI <span class="c_cnt">7</span></a></li>
+                <li><a href="#" class="link_sub_item">UIKit <span class="c_cnt">5</span></a></li>
+              </ul>
+            </li>
+            <li class="selected"><a href="#">AI/ML <span class="c_cnt">8</span></a>
+              <ul>
+                <li><a href="#" class="link_sub_item">LLM <span class="c_cnt">5</span></a></li>
+                <li><a href="#" class="link_sub_item">ML/DL <span class="c_cnt">3</span></a></li>
+              </ul>
+            </li>
+            <li><a href="#">디자인 <span class="c_cnt">15</span></a></li>
+            <li><a href="#">웹개발 <span class="c_cnt">20</span></a></li>
+            <li><a href="#">개발 문화 <span class="c_cnt">6</span></a></li>
+            <li><a href="#">프로젝트 <span class="c_cnt">8</span></a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="sidebar-widget">
+      <h3 class="sidebar-widget-title">RECENT POSTS</h3>
+      <ul class="sidebar-recent-list">
+        <li class="sidebar-recent-item"><a href="#" class="sidebar-recent-link"><span class="sidebar-recent-title">SwiftUI matchedGeometryEffect 완전 정복</span><span class="sidebar-recent-date">05.15</span></a></li>
+        <li class="sidebar-recent-item"><a href="#" class="sidebar-recent-link"><span class="sidebar-recent-title">Claude API 글쓰기 어시스턴트 만들기</span><span class="sidebar-recent-date">05.12</span></a></li>
+        <li class="sidebar-recent-item"><a href="#" class="sidebar-recent-link"><span class="sidebar-recent-title">Figma Variables 디자인 토큰 구축</span><span class="sidebar-recent-date">05.08</span></a></li>
+        <li class="sidebar-recent-item"><a href="#" class="sidebar-recent-link"><span class="sidebar-recent-title">Next.js 15 App Router 완전 가이드</span><span class="sidebar-recent-date">05.05</span></a></li>
+        <li class="sidebar-recent-item"><a href="#" class="sidebar-recent-link"><span class="sidebar-recent-title">팀을 성장시키는 코드 리뷰 문화</span><span class="sidebar-recent-date">04.29</span></a></li>
+      </ul>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2026 Yang. Powered by <a href="https://www.tistory.com" rel="noopener noreferrer">Tistory</a>.</p>
+    <nav class="footer-nav">
+      <a href="#" class="footer-link">RSS</a>
+      <a href="#" class="footer-link">태그</a>
+      <a href="#" class="footer-link">방명록</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- Preview Navigation -->
+<nav class="preview-nav" aria-label="프리뷰 탐색">
+  <span>미리보기</span>
+  <a href="index.html">갤러리</a>
+  <a href="01-home-light.html">홈 · 라이트</a>
+  <a href="02-home-dark.html">홈 · 다크</a>
+  <a href="03-post-light.html" class="active">포스트 · 라이트</a>
+  <a href="04-post-dark.html">포스트 · 다크</a>
+  <a href="05-category.html">카테고리</a>
+</nav>
+
+<script>
+(function () {
+  'use strict';
+  var themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+    });
+  }
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var sidebar = document.getElementById('siteSidebar');
+  if (mobileBtn && sidebar) {
+    mobileBtn.addEventListener('click', function () {
+      var open = sidebar.classList.toggle('is-open');
+      document.body.classList.toggle('sidebar-open', open);
+      mobileBtn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', function (e) {
+      if (sidebar.classList.contains('is-open') &&
+          !sidebar.contains(e.target) && e.target !== mobileBtn) {
+        sidebar.classList.remove('is-open');
+        document.body.classList.remove('sidebar-open');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  var searchToggle = document.getElementById('searchToggle');
+  var searchDropdown = document.getElementById('searchDropdown');
+  if (searchToggle && searchDropdown) {
+    searchToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = searchDropdown.classList.toggle('is-open');
+      searchToggle.setAttribute('aria-expanded', String(open));
+      if (open) searchDropdown.querySelector('.search-input').focus();
+    });
+    document.addEventListener('click', function (e) {
+      if (!searchDropdown.contains(e.target)) {
+        searchDropdown.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        searchDropdown.classList.remove('is-open');
+        searchToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  var progressBar = document.getElementById('readingProgress');
+  if (progressBar) {
+    window.addEventListener('scroll', function () {
+      var st = window.pageYOffset;
+      var dh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      progressBar.style.width = (dh > 0 ? Math.min(st / dh * 100, 100) : 0) + '%';
+    }, { passive: true });
+  }
+  /* TOC */
+  var postContent = document.getElementById('postContent');
+  var tocWidget = document.getElementById('tocWidget');
+  var tocNav = document.getElementById('tocNav');
+  if (postContent && tocWidget && tocNav) {
+    var headings = Array.prototype.slice.call(postContent.querySelectorAll('h2, h3'));
+    if (headings.length >= 2) {
+      tocWidget.style.display = 'block';
+      var counter = 0;
+      headings.forEach(function (h) { if (!h.id) h.id = 'toc-' + (counter++); });
+      var ul = document.createElement('ul');
+      ul.className = 'toc-list';
+      headings.forEach(function (h) {
+        var li = document.createElement('li');
+        li.className = 'toc-item' + (h.tagName === 'H3' ? ' toc-h3' : '');
+        var a = document.createElement('a');
+        a.className = 'toc-link';
+        a.href = '#' + h.id;
+        a.textContent = h.textContent;
+        a.dataset.id = h.id;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+      tocNav.appendChild(ul);
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              tocNav.querySelectorAll('.toc-link').forEach(function (l) { l.classList.remove('is-active'); });
+              var activeLink = tocNav.querySelector('[data-id="' + entry.target.id + '"]');
+              if (activeLink) activeLink.classList.add('is-active');
+            }
+          });
+        }, { rootMargin: '-56px 0px -60% 0px', threshold: 0 });
+        headings.forEach(function (h) { observer.observe(h); });
+      }
+      tocNav.addEventListener('click', function (e) {
+        var link = e.target.closest('.toc-link');
+        if (!link) return;
+        e.preventDefault();
+        var target = document.getElementById(link.dataset.id);
+        if (target) {
+          var headerEl = document.getElementById('siteHeader');
+          var offset = (headerEl ? headerEl.offsetHeight : 60) + 16;
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - offset, behavior: 'smooth' });
+        }
+      });
+    }
+  }
+  var categoryWidget = document.querySelector('.sidebar-category');
+  if (categoryWidget) {
+    categoryWidget.querySelectorAll('.c_cnt, .cnt').forEach(function(s) {
+      s.textContent = s.textContent.replace(/[\(\)]/g, '');
+    });
+    var linkTitEl = categoryWidget.querySelector('.link_tit');
+    if (linkTitEl) {
+      var a = linkTitEl.querySelector(':scope > a');
+      if (a) a.style.display = 'none';
+    }
+  }
+}());
+</script>
+</body>
+</html>

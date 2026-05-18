@@ -56,26 +56,68 @@
   "hotPaths": [
     {
       "path": "style.css",
-      "accessCount": 35,
-      "lastAccessed": 1779108025916,
+      "accessCount": 41,
+      "lastAccessed": 1779109982006,
       "type": "file"
     },
     {
       "path": "skin.html",
-      "accessCount": 17,
-      "lastAccessed": 1779106584924,
+      "accessCount": 18,
+      "lastAccessed": 1779109740067,
+      "type": "file"
+    },
+    {
+      "path": "preview/index.html",
+      "accessCount": 7,
+      "lastAccessed": 1779110701590,
       "type": "file"
     },
     {
       "path": "상세_페이지_와이어프레임_상세_명세서.md",
-      "accessCount": 5,
-      "lastAccessed": 1779104765067,
+      "accessCount": 6,
+      "lastAccessed": 1779109745841,
       "type": "file"
     },
     {
       "path": "디자인_시스템_명세서.md",
+      "accessCount": 4,
+      "lastAccessed": 1779109740081,
+      "type": "file"
+    },
+    {
+      "path": "메인_페이지_와이어프레임_상세_명세서.md",
       "accessCount": 3,
-      "lastAccessed": 1779104764681,
+      "lastAccessed": 1779109745670,
+      "type": "file"
+    },
+    {
+      "path": "preview/01-home-light.html",
+      "accessCount": 3,
+      "lastAccessed": 1779110736731,
+      "type": "file"
+    },
+    {
+      "path": "preview/02-home-dark.html",
+      "accessCount": 3,
+      "lastAccessed": 1779110739657,
+      "type": "file"
+    },
+    {
+      "path": "preview/03-post-light.html",
+      "accessCount": 3,
+      "lastAccessed": 1779110742156,
+      "type": "file"
+    },
+    {
+      "path": "preview/04-post-dark.html",
+      "accessCount": 3,
+      "lastAccessed": 1779110745097,
+      "type": "file"
+    },
+    {
+      "path": "preview/05-category.html",
+      "accessCount": 3,
+      "lastAccessed": 1779110747794,
       "type": "file"
     },
     {
@@ -85,15 +127,15 @@
       "type": "file"
     },
     {
-      "path": "메인_페이지_와이어프레임_상세_명세서.md",
-      "accessCount": 2,
-      "lastAccessed": 1779104764936,
-      "type": "file"
-    },
-    {
       "path": "index.xml",
       "accessCount": 2,
       "lastAccessed": 1779106586415,
+      "type": "file"
+    },
+    {
+      "path": "prd.json",
+      "accessCount": 2,
+      "lastAccessed": 1779110583820,
       "type": "file"
     },
     {
@@ -166,6 +208,12 @@
       "path": "study/index.xml_가이드.md",
       "accessCount": 1,
       "lastAccessed": 1779106948341,
+      "type": "file"
+    },
+    {
+      "path": "preview/preview-nav.css",
+      "accessCount": 1,
+      "lastAccessed": 1779110723648,
       "type": "file"
     }
   ],

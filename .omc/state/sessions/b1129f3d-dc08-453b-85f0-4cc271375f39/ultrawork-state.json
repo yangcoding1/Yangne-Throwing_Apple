@@ -1,0 +1,11 @@
+{
+  "active": true,
+  "started_at": "2026-05-18T13:08:48.756Z",
+  "original_prompt": "/oh-my-claudecode:ralph  현재 이 Tstory skin에 대한 preview를 여러 가지 만들어줘",
+  "session_id": "b1129f3d-dc08-453b-85f0-4cc271375f39",
+  "project_path": "/home/gnstjr007/project/TSTORY_SKIN",
+  "reinforcement_count": 0,
+  "awaiting_confirmation": true,
+  "awaiting_confirmation_set_at": "2026-05-18T13:08:48.756Z",
+  "last_checked_at": "2026-05-18T13:08:48.756Z"
+}
