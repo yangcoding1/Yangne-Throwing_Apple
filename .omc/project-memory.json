@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1779102804830,
+  "projectRoot": "/home/gnstjr007/project/TSTORY_SKIN",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "document-tistory-skin": {
+      "path": "document-tistory-skin",
+      "purpose": null,
+      "fileCount": 8,
+      "lastAccessed": 1779102804828,
+      "keyFiles": [
+        "AGENTS.md",
+        "README.md",
+        "SUMMARY.md",
+        "book.json",
+        "package-lock.json"
+      ]
+    },
+    "document-tistory-skin/docs": {
+      "path": "document-tistory-skin/docs",
+      "purpose": "Documentation",
+      "fileCount": 2,
+      "lastAccessed": 1779102804829,
+      "keyFiles": [
+        "index.html",
+        "search_index.json"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "style.css",
+      "accessCount": 12,
+      "lastAccessed": 1779103842407,
+      "type": "file"
+    },
+    {
+      "path": "skin.html",
+      "accessCount": 10,
+      "lastAccessed": 1779103836148,
+      "type": "file"
+    },
+    {
+      "path": "상세_페이지_와이어프레임_상세_명세서.md",
+      "accessCount": 4,
+      "lastAccessed": 1779103833116,
+      "type": "file"
+    },
+    {
+      "path": "디자인_시스템_명세서.md",
+      "accessCount": 2,
+      "lastAccessed": 1779103833322,
+      "type": "file"
+    },
+    {
+      "path": "document-tistory-skin/contents/post.md",
+      "accessCount": 2,
+      "lastAccessed": 1779103839302,
+      "type": "file"
+    },
+    {
+      "path": "메인_페이지_와이어프레임_상세_명세서.md",
+      "accessCount": 1,
+      "lastAccessed": 1779009166875,
+      "type": "file"
+    },
+    {
+      "path": "current_home.png",
+      "accessCount": 1,
+      "lastAccessed": 1779009207834,
+      "type": "file"
+    },
+    {
+      "path": "document-tistory-skin/SUMMARY.md",
+      "accessCount": 1,
+      "lastAccessed": 1779103836682,
+      "type": "file"
+    },
+    {
+      "path": "document-tistory-skin/sidebar/basic.md",
+      "accessCount": 1,
+      "lastAccessed": 1779103843474,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

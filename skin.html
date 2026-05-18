@@ -438,6 +438,13 @@
         </div>
       </s_sidebar_element>
     </s_sidebar>
+
+    <!-- TOC: shown by JS when post has 2+ headings -->
+    <div class="sidebar-widget sidebar-toc" id="tocWidget" aria-label="목차">
+      <h3 class="sidebar-widget-title">목차</h3>
+      <nav class="toc-nav" id="tocNav"></nav>
+    </div>
+
     <s_sidebar>
       <s_sidebar_element>
         <!-- 카테고리 -->
@@ -527,12 +534,6 @@
         </div>
       </s_sidebar_element>
     </s_sidebar>
-
-    <!-- TOC: shown by JS when post has 2+ headings -->
-    <div class="sidebar-widget sidebar-toc" id="tocWidget" aria-label="목차">
-      <h3 class="sidebar-widget-title">목차</h3>
-      <nav class="toc-nav" id="tocNav"></nav>
-    </div>
   </aside>
 
 </div><!-- /.site-wrapper -->
@@ -692,10 +693,6 @@
     }
   }
 
-  var adminBtns = document.querySelector('.profile-admin-btns');
-  if (adminBtns && adminBtns.classList.length > 1) {
-    adminBtns.style.display = 'flex';
-  }
   var btnWrite = document.querySelector('.btn-write');
   if (btnWrite) {
     btnWrite.addEventListener('click', function() {
