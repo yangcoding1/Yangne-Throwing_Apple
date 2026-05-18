@@ -55,15 +55,15 @@
   },
   "hotPaths": [
     {
-      "path": "skin.html",
-      "accessCount": 16,
-      "lastAccessed": 1779105815275,
+      "path": "style.css",
+      "accessCount": 35,
+      "lastAccessed": 1779108025916,
       "type": "file"
     },
     {
-      "path": "style.css",
-      "accessCount": 15,
-      "lastAccessed": 1779105752809,
+      "path": "skin.html",
+      "accessCount": 17,
+      "lastAccessed": 1779106584924,
       "type": "file"
     },
     {
@@ -88,6 +88,12 @@
       "path": "메인_페이지_와이어프레임_상세_명세서.md",
       "accessCount": 2,
       "lastAccessed": 1779104764936,
+      "type": "file"
+    },
+    {
+      "path": "index.xml",
+      "accessCount": 2,
+      "lastAccessed": 1779106586415,
       "type": "file"
     },
     {
@@ -139,15 +145,27 @@
       "type": "file"
     },
     {
-      "path": "index.xml",
-      "accessCount": 1,
-      "lastAccessed": 1779104771246,
-      "type": "file"
-    },
-    {
       "path": "스킨_스터디_가이드.md",
       "accessCount": 1,
       "lastAccessed": 1779104797993,
+      "type": "file"
+    },
+    {
+      "path": "study/skin.html_가이드.md",
+      "accessCount": 1,
+      "lastAccessed": 1779106742096,
+      "type": "file"
+    },
+    {
+      "path": "study/style.css_가이드.md",
+      "accessCount": 1,
+      "lastAccessed": 1779106890456,
+      "type": "file"
+    },
+    {
+      "path": "study/index.xml_가이드.md",
+      "accessCount": 1,
+      "lastAccessed": 1779106948341,
       "type": "file"
     }
   ],
