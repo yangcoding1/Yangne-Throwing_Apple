@@ -514,11 +514,21 @@ ul, ol { list-style: none; }
   border-bottom: 1px solid var(--color-border);
 }
 
+.post-detail-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
 .post-detail-meta {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
+}
+
+.post-detail-top-row .post-detail-meta {
+  margin-bottom: 0;
 }
 
 .post-detail-title {
@@ -689,7 +699,8 @@ ul, ol { list-style: none; }
 
 .post-admin-bar {
   display: flex;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .admin-btn {

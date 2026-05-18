@@ -55,15 +55,15 @@
   },
   "hotPaths": [
     {
-      "path": "style.css",
-      "accessCount": 12,
-      "lastAccessed": 1779103842407,
+      "path": "skin.html",
+      "accessCount": 16,
+      "lastAccessed": 1779105815275,
       "type": "file"
     },
     {
-      "path": "skin.html",
-      "accessCount": 10,
-      "lastAccessed": 1779103836148,
+      "path": "style.css",
+      "accessCount": 15,
+      "lastAccessed": 1779105752809,
       "type": "file"
     },
     {

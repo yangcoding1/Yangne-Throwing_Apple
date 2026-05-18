@@ -127,6 +127,31 @@
     </s_notice_rep>
 
     <!-- ========================================================
+         LIST HEADER: Category / Tag / Search (shown above article list)
+         ======================================================== -->
+    <s_list>
+    <div class="list-page-header">
+      <s_list_image>
+      <div class="list-page-cover" style="background-image:url('[##_list_image_##]')" aria-hidden="true"></div>
+      </s_list_image>
+      <div class="list-page-eyebrow">
+        <span class="list-page-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          카테고리
+        </span>
+      </div>
+      <h2 class="list-page-title">
+        [##_list_conform_##]
+        <span class="list-page-count">[##_list_count_##]건</span>
+      </h2>
+      <p class="list-page-desc">[##_list_description_##]</p>
+      <s_list_empty>
+      <div class="list-empty">등록된 글이 없습니다.</div>
+      </s_list_empty>
+    </div>
+    </s_list>
+
+    <!-- ========================================================
          INDEX: Article list (rendered on index / category / archive pages)
          PERMALINK: Single post detail
          ======================================================== -->
@@ -134,15 +159,23 @@
     <s_permalink_article_rep>
     <article class="post-detail" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-detail-header">
-        <div class="post-detail-meta">
-          <a href="[##_article_rep_category_link_##]" class="post-category">[##_article_rep_category_##]</a>
-          <time class="post-date" itemprop="datePublished">[##_article_rep_date_##]</time>
-          <s_rp_count>
-          <span class="post-comment-count" aria-label="댓글 수">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            [##_article_rep_rp_cnt_##]
-          </span>
-          </s_rp_count>
+        <div class="post-detail-top-row">
+          <div class="post-detail-meta">
+            <a href="[##_article_rep_category_link_##]" class="post-category">[##_article_rep_category_##]</a>
+            <time class="post-date" itemprop="datePublished">[##_article_rep_date_##]</time>
+            <s_rp_count>
+            <span class="post-comment-count" aria-label="댓글 수">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              [##_article_rep_rp_cnt_##]
+            </span>
+            </s_rp_count>
+          </div>
+          <s_ad_div>
+          <div class="post-admin-bar">
+            <a href="[##_s_ad_m_link_##]" class="admin-btn">수정</a>
+            <a href="#" onclick="[##_s_ad_d_onclick_##]" class="admin-btn admin-btn-danger">삭제</a>
+          </div>
+          </s_ad_div>
         </div>
         <h1 class="post-detail-title" itemprop="headline">[##_article_rep_title_##]</h1>
       </header>
@@ -155,13 +188,6 @@
         <s_tag_label>
         <div class="post-tags" aria-label="태그">[##_tag_label_rep_##]</div>
         </s_tag_label>
-
-        <s_ad_div>
-        <div class="post-admin-bar">
-          <a href="[##_s_ad_m_link_##]" class="admin-btn">수정</a>
-          <a href="#" onclick="[##_s_ad_d_onclick_##]" class="admin-btn admin-btn-danger">삭제</a>
-        </div>
-        </s_ad_div>
       </footer>
 
       <!-- Prev / Next navigation -->
@@ -293,61 +319,6 @@
     </s_permalink_article_rep>
     </s_page_rep>
 
-    <!-- ========================================================
-         LIST: Category / Tag / Search results
-         ======================================================== -->
-    <s_list>
-    <div class="list-page">
-      <div class="list-page-header">
-        <s_list_image>
-        <div class="list-page-cover" style="background-image:url('[##_list_image_##]')" aria-hidden="true"></div>
-        </s_list_image>
-        <div class="list-page-eyebrow">
-          <span class="list-page-badge">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
-            카테고리
-          </span>
-        </div>
-        <h2 class="list-page-title">
-          [##_list_conform_##]
-          <span class="list-page-count">[##_list_count_##]건</span>
-        </h2>
-        <p class="list-page-desc">[##_list_description_##]</p>
-      </div>
-
-      <s_list_empty>
-      <div class="list-empty">등록된 글이 없습니다.</div>
-      </s_list_empty>
-
-      <s_list_rep>
-      <article class="post-card">
-        <div class="post-card-inner">
-          <div class="post-card-body">
-            <div class="post-card-meta">
-              <a href="[##_list_rep_category_link_##]" class="post-category">[##_list_rep_category_##]</a>
-              <span class="post-date">[##_list_rep_regdate_##]</span>
-            </div>
-            <h2 class="post-card-title">
-              <a href="[##_list_rep_link_##]" class="post-card-link">[##_list_rep_title_text_##]</a>
-            </h2>
-            <p class="post-card-summary">[##_list_rep_summary_##]</p>
-            <div class="post-card-footer">
-              <span class="post-comment-count" aria-label="댓글 수">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                [##_list_rep_rp_cnt_##]
-              </span>
-            </div>
-          </div>
-          <s_list_rep_thumbnail>
-          <div class="post-card-thumb" aria-hidden="true">
-            <img src="[##_list_rep_thumbnail_url_##]" alt="" loading="lazy">
-          </div>
-          </s_list_rep_thumbnail>
-        </div>
-      </article>
-      </s_list_rep>
-    </div>
-    </s_list>
 
     <!-- ========================================================
          PAGINATION
