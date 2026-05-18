@@ -68,14 +68,14 @@
     },
     {
       "path": "상세_페이지_와이어프레임_상세_명세서.md",
-      "accessCount": 4,
-      "lastAccessed": 1779103833116,
+      "accessCount": 5,
+      "lastAccessed": 1779104765067,
       "type": "file"
     },
     {
       "path": "디자인_시스템_명세서.md",
-      "accessCount": 2,
-      "lastAccessed": 1779103833322,
+      "accessCount": 3,
+      "lastAccessed": 1779104764681,
       "type": "file"
     },
     {
@@ -86,8 +86,8 @@
     },
     {
       "path": "메인_페이지_와이어프레임_상세_명세서.md",
-      "accessCount": 1,
-      "lastAccessed": 1779009166875,
+      "accessCount": 2,
+      "lastAccessed": 1779104764936,
       "type": "file"
     },
     {
@@ -106,6 +106,48 @@
       "path": "document-tistory-skin/sidebar/basic.md",
       "accessCount": 1,
       "lastAccessed": 1779103843474,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 1,
+      "lastAccessed": 1779104763991,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1779104764222,
+      "type": "file"
+    },
+    {
+      "path": "document-tistory-skin/README.md",
+      "accessCount": 1,
+      "lastAccessed": 1779104768072,
+      "type": "file"
+    },
+    {
+      "path": "APPLY_GUIDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1779104768509,
+      "type": "file"
+    },
+    {
+      "path": "document-tistory-skin/common/files.md",
+      "accessCount": 1,
+      "lastAccessed": 1779104768619,
+      "type": "file"
+    },
+    {
+      "path": "index.xml",
+      "accessCount": 1,
+      "lastAccessed": 1779104771246,
+      "type": "file"
+    },
+    {
+      "path": "스킨_스터디_가이드.md",
+      "accessCount": 1,
+      "lastAccessed": 1779104797993,
       "type": "file"
     }
   ],

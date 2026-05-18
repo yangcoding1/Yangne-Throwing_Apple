@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
   <information>
-    <name>Apple Toss Minimal</name>
+    <name>Yangne-Throwing_Apple</name>
     <version>1.0</version>
     <description>
-      <![CDATA[Apple과 Toss 감성의 미니멀 스킨입니다. 라이트/다크 모드, 반응형 레이아웃, 플로팅 목차(TOC)를 지원합니다.]]>
+      <![CDATA[Yangne-Throwing_Apple 스킨입니다. 라이트/다크 모드, 반응형 레이아웃, 플로팅 목차(TOC)를 지원합니다.]]>
     </description>
     <license>
       <![CDATA[자유롭게 수정이 가능하며, 저작권 표시 하에 재배포 가능합니다.]]>
     </license>
   </information>
   <author>
-    <name>Apple Toss Minimal Skin</name>
+    <name>Yangne-Throwing_Apple</name>
     <homepage></homepage>
     <email></email>
   </author>
